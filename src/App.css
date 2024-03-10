@@ -32,7 +32,26 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.m50 {
+  margin: 50px;
+}
+
+.currentPostType {
+  width: 100%;
+  text-align: left;
+}
+
+.currentPostType.active{
+  font-weight: 700;
+}
+
+.none{
+  display: none;
 }

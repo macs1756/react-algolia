@@ -23,7 +23,7 @@ function App() {
       <InstantSearch searchClient={searchClient} indexName="full">
         {/* <Discounts /> */}
         <MainTypes />
-        <RefinementList attribute="post_type" />
+        <RefinementList className='none' attribute="post_type" />
 
         <RefinementList attribute="brand" />
 
