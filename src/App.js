@@ -7,6 +7,7 @@ import {
   useInstantSearch,
 } from 'react-instantsearch';
 import algoliasearch from 'algoliasearch/lite';
+import MainTypes from './components/MainTypes';
 
 const searchClient = algoliasearch(
   process.env.REACT_APP_ALGOLIA_APP_ID,
@@ -21,6 +22,7 @@ function App() {
       <h2>Algolia search:</h2>
       <InstantSearch searchClient={searchClient} indexName="full">
         {/* <Discounts /> */}
+        <MainTypes />
         <RefinementList attribute="post_type" />
 
         <RefinementList attribute="brand" />
