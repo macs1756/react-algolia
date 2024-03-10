@@ -32,7 +32,71 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.m50 {
+  margin: 50px;
+}
+
+.currentPostType {
+  width: 100%;
+  text-align: left;
+}
+
+.currentPostType.active{
+  font-weight: 700;
+}
+
+.none{
+  display: none;
+}
+
+.brandsWrapper{
+  padding: 5px;
+  width: 300px;
+  overflow: auto;
+  height: 250px;
+  border-bottom: 1px solid #c5c5c5;
+}
+
+.brandsWrapper li{
+  text-align: left;
+}
+
+.opacity40{
+  transition: all 0.3s linear;
+  opacity: 0.4;
+  pointer-events: none;
+  cursor: default;
+}
+
+.left{
+  text-align: left;
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: 400px 1fr;
+}
+
+.baseWrapper{
+  padding: 5px;
+  width: 300px;
+  overflow: auto;
+  height: 250px;
+  border-bottom: 1px solid #c5c5c5;
+}
+
+.baseWrapper li{
+  text-align: left;
+}
+
+
+.space{
+  height: 500px;
 }
