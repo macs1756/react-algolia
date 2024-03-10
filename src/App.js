@@ -8,6 +8,8 @@ import {
 } from 'react-instantsearch';
 import algoliasearch from 'algoliasearch/lite';
 import MainTypes from './components/MainTypes';
+import Brands from './components/Brands';
+import { useState } from 'react';
 
 const searchClient = algoliasearch(
   process.env.REACT_APP_ALGOLIA_APP_ID,
@@ -15,17 +17,27 @@ const searchClient = algoliasearch(
 );
 
 function App() {
-  //const { indexUiState, setIndexUiState } = useInstantSearch();
+  
+  const [currentType, setCurrentType] = useState('')
+
+  const handleTypeChange = (newType) => {
+    setCurrentType(newType);
+  };
 
   return (
     <div className="App">
       <h2>Algolia search:</h2>
       <InstantSearch searchClient={searchClient} indexName="full">
         {/* <Discounts /> */}
-        <MainTypes />
-        <RefinementList className='none' attribute="post_type" />
 
-        <RefinementList attribute="brand" />
+        <MainTypes
+        handleTypeChange={handleTypeChange}
+         />
+  
+        <Brands currentType={currentType} attribute="brand" limit={999} />
+
+        <RefinementList className='none' attribute="post_type" />
+        <RefinementList className='none'  attribute="brand" limit={999} />
 
 
         <Hits />

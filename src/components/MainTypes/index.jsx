@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useInstantSearch } from 'react-instantsearch';
 
-function MainTypes() {
+function MainTypes({handleTypeChange}) {
 
   const { indexUiState, setIndexUiState } = useInstantSearch();
   const [currentPostType, setCurrentPostType] = useState()
@@ -29,13 +29,13 @@ function MainTypes() {
     },
   ]
 
-  useEffect(() => {
-    setIndexUiState((prevIndexUiState) => ({
-      refinementList: {
-        post_type: ['best_of'],
-      },
-    }))
-  }, [])
+  // useEffect(() => {
+  //   setIndexUiState((prevIndexUiState) => ({
+  //     refinementList: {
+  //       post_type: ['best_of'],
+  //     },
+  //   }))
+  // }, [])
 
 
   useEffect(() => {
@@ -52,6 +52,7 @@ function MainTypes() {
       },
     })
 
+    handleTypeChange(value)
   }
 
   return (
