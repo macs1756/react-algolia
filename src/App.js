@@ -37,30 +37,33 @@ function App() {
         <div className='grid'>
 
           <div>
-            
+
             <Brands currentType={currentType} attribute="brand" limit={999} />
             <Substances attribute="substances.name" limit={999} />
+
+
             <ProductTypes
-             attributes={[
-              'product_types.lvl0',
-              'product_types.lvl1',
-              'product_types.lvl2',
-            ]}
-            limit={999} />
+              attributes={[
+                'product_types.lvl0',
+                'product_types.lvl1',
+                'product_types.lvl2',
+              ]}
+              limit={999} />
 
             <RefinementList className='none' attribute="post_type" />
             <RefinementList className='none' attribute="brand" limit={999} />
             <RefinementList className='none' attribute="substances.name" limit={999} />
             <RefinementList className='none' attribute="substances.name" limit={999} />
 
-           
+
 
 
           </div>
 
           <div>
 
-          <HierarchicalMenu
+            <HierarchicalMenu
+              className='none'
               attributes={[
                 'product_types.lvl0',
                 'product_types.lvl1',
@@ -68,7 +71,7 @@ function App() {
               ]}
             />
 
-          <MainTypes
+            <MainTypes
               handleTypeChange={handleTypeChange}
             />
 
