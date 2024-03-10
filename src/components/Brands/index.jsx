@@ -18,45 +18,39 @@ function Brands(props) {
 
   }, [items])
 
-
   useEffect(() => {
     console.log(indexUiState);
   }, [indexUiState])
 
   const changeFillters = (value, type) => {
     if (type === 'add') {
-
-      console.log(value);
-
       setIndexUiState((prevIndexUiState) => ({
         ...prevIndexUiState,
         refinementList: {
-          ...prevIndexUiState.refinementList,
-          brand: prevIndexUiState.refinementList.brand
+          ...(prevIndexUiState.refinementList || {}), 
+          brand: prevIndexUiState.refinementList && prevIndexUiState.refinementList.brand
             ? [...prevIndexUiState.refinementList.brand, value]
             : [value],
         },
       }));
-
     } else {
-
       setIndexUiState((prevIndexUiState) => ({
         ...prevIndexUiState,
         refinementList: {
-          ...prevIndexUiState.refinementList,
-          brand: prevIndexUiState.refinementList.brand
+          ...(prevIndexUiState.refinementList || {}),
+          brand: prevIndexUiState.refinementList && prevIndexUiState.refinementList.brand
             ? prevIndexUiState.refinementList.brand.filter(item => item !== value)
             : [],
         },
       }));
-
     }
-  }
-
-  //console.log(currentType);
+  };
+  
 
   return (
-    <ul className={props.currentType !== 'products' ? "m50 brandsWrapper opacity40" : "m50 brandsWrapper"}>
+    <div className={props.currentType !== 'products' ? "m50 opacity40" : 'm50'} >
+    <h2 className="left">Brands</h2>
+    <ul className="brandsWrapper">
       {
         allBrands && allBrands.map((e, i) => (
           <li key={e?.label + i} >
@@ -69,6 +63,7 @@ function Brands(props) {
         ))
       }
     </ul>
+    </div>
   );
 }
 

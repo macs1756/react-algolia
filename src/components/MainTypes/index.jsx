@@ -59,7 +59,10 @@ function MainTypes({handleTypeChange}) {
     <ul className='m50'>
       {
         mainTypes.map((e, i) => (
-          <li className={currentPostType === e?.value ? 'currentPostType active' : 'currentPostType'} onClick={() => addNewFilter(e?.value)} key={e?.value + i}>{e?.label}</li>
+          <li 
+          className={currentPostType === e?.value ? 'currentPostType active' : 'currentPostType'} 
+          onClick={() => addNewFilter(e?.value)} 
+          key={e?.value + i}>{e?.label}</li>
         ))
       }
     </ul>
